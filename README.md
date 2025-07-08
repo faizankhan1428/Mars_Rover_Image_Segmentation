@@ -1,61 +1,54 @@
-﻿Mars Rover Image Segmentation
-This project explores image segmentation and terrain classification using real Mars images from NASA's Curiosity Rover. We used classical computer vision techniques to analyze images, identify features, and classify terrain into rocky vs smooth areas.
+# Mars Rover Image Segmentation
 
-We also applied PCA to visualize the extracted features in lower dimensions.
+This project uses classical computer vision techniques to segment and classify terrain in real Mars images captured by NASA’s Curiosity rover.
 
-Project Notebook:
-Kaggle Notebook Link: https://www.kaggle.com/code/faizankhandeshmukh/mars-rover-image-segmentation
+## 🔍 Overview
+Using a dataset from Kaggle, we processed raw grayscale images taken by the rover’s front and rear hazard cameras (FHAZ, RHAZ) and navigational cameras (NAVCAM). The goal was to segment terrain regions and classify them as **rocky** or **smooth** using feature-based machine learning.
 
-Dataset
-Name: Mars Curiosity Image Dataset
-Source: https://www.kaggle.com/datasets/lnicole/mars-curiosity-dataset
-Description: A multi-camera image dataset from NASA’s Curiosity rover, including NAVCAM, FHAZ, and RHAZ images. We used a subset of front and rear hazcam grayscale images.
+## 📁 Dataset
+**Dataset Name:** Mars Curiosity Image Dataset  
+**Source:** [Kaggle Dataset Link](https://www.kaggle.com/datasets/sidhus/crater-mars-curiosity-dataset)
 
-Steps Overview
-Step 1: Load and Display Images
+## 📌 Project Steps
 
-Loaded and displayed sample grayscale images from the rover's navigation cameras.
+### Step 1: Load and Preview the Dataset
+Images were loaded from the dataset and resized for analysis.
 
-Step 2: Image Segmentation
+### Step 2: Image Segmentation
+We applied grayscale thresholding and morphological operations to extract terrain regions.
 
-Applied grayscale thresholding to segment key features.
+### Step 3: Edge Detection & Contour Extraction
+Canny edge detection and contour analysis were used to detect shapes and terrain boundaries.
 
-Step 3: Edge Detection and Contours
+### Step 4: Terrain Classification
+- **4.1 Feature Extraction:** Texture and intensity features were extracted using `skimage`.
+- **4.2 Classification:** Trained a Random Forest Classifier to categorize patches as rocky or smooth.
 
-Used Canny edge detection and contour approximation to identify terrain boundaries.
+### Step 5: Visualize Classified Terrain
+Classified image patches were displayed with labels overlaid.
 
-Step 4: Feature Extraction and Classification
+### Step 6: Terrain Statistics
+Computed the percentage of rocky vs smooth patches across each image.
 
-Extracted small image patches, computed texture features using Local Binary Pattern (LBP), and trained a classifier to predict terrain type.
+### Step 7: PCA for Feature Space Visualization
+Principal Component Analysis (PCA) was used to visualize feature distribution in 2D space.
 
-Step 5: Terrain Classification Visualization
+### Step 8: Save and Share
+Notebook was saved and exported for sharing. Model export and future inference were also considered.
 
-Predicted and visualized rocky vs smooth regions using color masks over images.
+## 📌 Results
+- The classifier showed effective performance on unseen image patches.
+- Smooth vs Rocky terrain segmentation worked well under varying light and camera angles.
 
-Step 6: Terrain Ratio Calculation
+## 📎 Notebook
+Access the full notebook on Kaggle:  
+**[Mars Rover Image Segmentation](https://www.kaggle.com/code/faizankhandeshmukh/mars-rover-image-segmentation)**
 
-Calculated and displayed the percentage of rocky vs smooth terrain.
+## 🧠 Future Work
+- Integrate deep learning models (e.g., U-Net) for advanced segmentation.
+- Apply transfer learning on Mars terrain datasets with RGB imaging.
+- Extend analysis for obstacle detection in autonomous navigation.
 
-Step 7: Feature Space Visualization
+---
 
-Used PCA to reduce LBP feature space to 2D and visualized it.
-
-Step 8: Save and Share
-
-Prepared the notebook for sharing and saved the trained model (optional).
-
-Outcome
-Successfully segmented Mars terrain into rocky and smooth regions.
-
-Visualized terrain statistics and features.
-
-Demonstrated practical use of edge detection, feature extraction, classification, and dimensionality reduction.
-
-Future Work
-Use deep learning (like U-Net or ResNet) for improved segmentation.
-
-Train on more labeled data from other Mars missions.
-
-Extend classification into more terrain types like sandy, hilly, or cratered.
-
-Apply object detection to identify rover parts, shadows, or obstacles.
+**This project demonstrates how classical vision techniques can still play a vital role in real-world space exploration problems.**
